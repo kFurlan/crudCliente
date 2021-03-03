@@ -1,0 +1,33 @@
+<div *ngIf="cliente">
+    <h2>{{cliente.nome}} Detalhes Cliente</h2>
+    <div><span>id: </span>{{cliente.id}}</div>
+    <div>
+      <label for='nome'>Nome: </label>
+      <input id='nome' [(ngModel)]="cliente.nome" placeholder="nome">
+    </div>
+    <div>
+        <label for='telefone'>Telefone: </label>
+        <input id='telefone' [(ngModel)]="cliente.telefone" placeholder="telefone">
+      </div>
+      <div>
+        <label for='documento'>Documento: </label>
+        <input id='documento' [(ngModel)]="cliente.documento" placeholder="documento">
+      </div>
+      <div>
+        <label for='endereco'>Endereço: </label>
+        <input id='endereco' [(ngModel)]="cliente.endereco" placeholder="endereco">
+      </div>
+      <button (click)="goBack()">go back</button>
+      <button (click)="save()">save</button>
+    </div>
+<!-- 
+    <div *ngIf="hero">
+      <h2>{{hero.name | uppercase}} Details</h2>
+      <div><span>id: </span>{{hero.id}}</div>
+      <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+      </div>
+      <button (click)="goBack()">go back</button>
+      <button (click)="save()">save</button>
+    </div> -->
