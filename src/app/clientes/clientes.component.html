@@ -1,0 +1,29 @@
+<h2>Clientes: </h2>
+<ul class="clientes">
+  <li *ngFor="let cliente of clientes"
+    [class.selected]="cliente === selectedCliente"
+    (click)="onSelect(cliente)">
+    <span class="badge">{{cliente.id}}</span> {{cliente.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedCliente">
+<h2>{{cliente.nome}} Detalhes</h2>
+<div><span>id: </span>{{cliente.id}}</div>
+<div>
+  <label for='nome'>Nome: </label>
+  <input id='nome' [(ngModel)]="selectedCliente.nome" placeholder="nome">
+</div>
+<div>
+    <label for='telefone'>Telefone: </label>
+    <input id='telefone' [(ngModel)]="selectedCliente.telefone" placeholder="telefone">
+  </div>
+  <div>
+    <label for='documento'>Documento: </label>
+    <input id='documento' [(ngModel)]="selectedCliente.documento" placeholder="documento">
+  </div>
+  <div>
+    <label for='endereco'>Endereço: </label>
+    <input id='endereco' [(ngModel)]="selectedCliente.endereco" placeholder="endereco">
+  </div>
+</div>
