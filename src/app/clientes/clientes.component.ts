@@ -1,24 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../Cliente';
-import { clientes } from '../mock-clientes';
+import { ClienteService } from '../cliente.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
   styleUrls: ['./clientes.component.css']
 })
-export class ClientesComponent implements OnInit {
 
-  clientes = clientes;
-  selectedCliente?: Cliente;
+export class ClienteComponent implements OnInit {
+  clientes: Cliente[];
 
-  constructor() { }
+  constructor(private clienteService: ClienteService) { }
 
   ngOnInit() {
+    this.getClientes();
   }
 
-  onSelect(cliente: Cliente): void {
-    this.selectedCliente = cliente;
+  getClientes(): void {
+    this.clienteService.getClientes()
+    .subscribe(clientes => this.clientes = clientes);
+  }
+
+  add(nome: string): void {
+    nome = nome.trim();
+    if (!nome) { return; }
+    this.clienteService.addCliente({ nome } as Cliente)
+      .subscribe(cliente => {
+        this.clientes.push(cliente);
+      });
+  }
+
+  delete(cliente: Cliente): void {
+    this.clientes = this.clientes.filter(h => h !== cliente);
+    this.clienteService.deleteCliente(cliente).subscribe();
   }
 
 }

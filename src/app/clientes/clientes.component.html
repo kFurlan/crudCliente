@@ -1,4 +1,4 @@
-<h2>Clientes: </h2>
+<!-- <h2>Clientes: </h2>
 <ul class="clientes">
   <li *ngFor="let cliente of clientes"
     [class.selected]="cliente === selectedCliente"
@@ -7,23 +7,39 @@
   </li>
 </ul>
 
-<div *ngIf="selectedCliente">
-<h2>{{cliente.nome}} Detalhes</h2>
-<div><span>id: </span>{{cliente.id}}</div>
+<app-cliente-detalhes [hero]="selectedHero"></app-cliente-detalhes>
+ -->
+
+<h2>Cadastro Clientes</h2>
+
 <div>
-  <label for='nome'>Nome: </label>
-  <input id='nome' [(ngModel)]="selectedCliente.nome" placeholder="nome">
+  <label id="new-cliente">Nome: </label>
+  <input for="new-cliente" #clienteNome />
 </div>
 <div>
-    <label for='telefone'>Telefone: </label>
-    <input id='telefone' [(ngModel)]="selectedCliente.telefone" placeholder="telefone">
-  </div>
-  <div>
-    <label for='documento'>Documento: </label>
-    <input id='documento' [(ngModel)]="selectedCliente.documento" placeholder="documento">
-  </div>
-  <div>
-    <label for='endereco'>Endereço: </label>
-    <input id='endereco' [(ngModel)]="selectedCliente.endereco" placeholder="endereco">
-  </div>
+  <label id="new-cliente">Telefone: </label>
+  <input for="new-cliente" #clienteTelefone />
 </div>
+<div>
+  <label id="new-cliente">Documento: </label>
+  <input for="new-cliente" #clienteDocumento />
+</div>
+<div>
+  <label id="new-cliente">Endereço: </label>
+  <input for="new-cliente" #clienteEndereco />
+</div>
+<div>
+  <button class="add-button" (click)="add(clienteNome.value); clienteNome.value=''">
+    Adicionar
+  </button>
+</div>
+
+<ul class="clientes">
+  <li *ngFor="let cliente of clientes">
+    <a routerLink="/detail/{{cliente.id}}">
+      <span class="badge">{{cliente.id}}</span> {{cliente.name}}
+    </a>
+    <button class="delete" title="delete cliente"
+      (click)="delete(cliente)">Apagar </button>
+  </li>
+</ul>
