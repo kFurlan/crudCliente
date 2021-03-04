@@ -15,6 +15,6 @@ export class InMemoryDataService implements InMemoryDataService {
   }
 
   genId(clientes: Cliente[]): number {
-    return clientes.length > 0 ? Math.max(...clientes.map(cliente => cliente.id)) + 1 : 11;
+    return clientes.length > 0 ? Math.max(...clientes.map(cliente => cliente.id)) + 1 : 100;
   }
 }
