@@ -17,7 +17,11 @@
   <input for="new-cliente" #clienteEndereco />
 </div>
 <div>
-  <button class="add-button" (click)="add(clienteNome.value); clienteNome.value=''">
+  <button class="add-button" (click)="add(
+    clienteNome.value,
+    clienteTelefone.value,
+    clienteDocumento.value,
+    clienteEndereco.value); clienteNome.value=''; clienteEndereco.value=''; clienteDocumento.value=''; clienteTelefone.value=''">
     Adicionar
   </button>
 </div>
@@ -25,7 +29,7 @@
 <ul class="clientes">
   <li *ngFor="let cliente of clientes">
     <a routerLink="/detail/{{cliente.id}}">
-      <span class="badge">{{cliente.id}}</span> {{cliente.name}}
+      <span class="badge">{{cliente.id}}</span> {{cliente.nome}}
     </a>
     <button class="delete" title="delete cliente"
       (click)="delete(cliente)">Apagar </button>

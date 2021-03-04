@@ -23,13 +23,17 @@ export class ClienteComponent implements OnInit {
     .subscribe(clientes => this.clientes = clientes);
   }
 
-  add(nome: string): void {
+  add(nome: string, telefone: string, documento: string, endereco: string): void {
     nome = nome.trim();
+    telefone = telefone.trim();
+    documento = documento.trim();
+    endereco = endereco.trim();
     if (!nome) { return; }
-    this.clienteService.addCliente({ nome } as Cliente)
+    this.clienteService.addCliente({ nome,telefone,documento,endereco } as Cliente)
       .subscribe(cliente => {
         this.clientes.push(cliente);
       });
+      console.log(this.clientes)
   }
 
   delete(cliente: Cliente): void {
