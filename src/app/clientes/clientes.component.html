@@ -1,15 +1,3 @@
-<!-- <h2>Clientes: </h2>
-<ul class="clientes">
-  <li *ngFor="let cliente of clientes"
-    [class.selected]="cliente === selectedCliente"
-    (click)="onSelect(cliente)">
-    <span class="badge">{{cliente.id}}</span> {{cliente.name}}
-  </li>
-</ul>
-
-<app-cliente-detalhes [hero]="selectedHero"></app-cliente-detalhes>
- -->
-
 <h2>Cadastro Clientes</h2>
 
 <div>
@@ -18,7 +6,7 @@
 </div>
 <div>
   <label id="new-cliente">Telefone: </label>
-  <input for="new-cliente" #clienteTelefone />
+  <input for="new-cliente" #clienteTelefone/>
 </div>
 <div>
   <label id="new-cliente">Documento: </label>
