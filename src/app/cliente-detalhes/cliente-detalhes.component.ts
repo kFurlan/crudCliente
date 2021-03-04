@@ -11,8 +11,11 @@ import { Location } from '@angular/common';
 })
 export class ClienteDetalhesComponent implements OnInit {
 
-  @Input() cliente: Cliente; 
-  constructor(private clienteService: ClienteService, private route: ActivatedRoute,  private location: Location) { }
+  cliente: Cliente;
+  constructor(
+    private clienteService: ClienteService, 
+    private route: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit(): void {
     this.getCliente();
@@ -21,9 +24,9 @@ export class ClienteDetalhesComponent implements OnInit {
   getCliente(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.clienteService.getCliente(id)
-      .subscribe(cliente => this.cliente = this.cliente);
+      .subscribe(cliente => this.cliente = cliente);
   }
-
+  
   goBack(): void {
     this.location.back();
   }

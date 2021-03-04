@@ -1,13 +1,13 @@
 <div *ngIf="cliente">
-    <h2>{{cliente.nome}} Detalhes Cliente</h2>
+    <h2>Detalhes: {{cliente.nome}}</h2>
     <div><span>id: </span>{{cliente.id}}</div>
-    <div>
+    <div >
       <label for='nome'>Nome: </label>
-      <input id='nome' [(ngModel)]="cliente.nome" placeholder="nome">
+      <input id='nome' [(ngModel)]="cliente.nome" placeholder="nome" style="margin-left: 38px;">
     </div>
     <div>
         <label for='telefone'>Telefone: </label>
-        <input id='telefone' [(ngModel)]="cliente.telefone" placeholder="telefone">
+        <input id='telefone' [(ngModel)]="cliente.telefone" placeholder="telefone" style="margin-left: 20px;">
       </div>
       <div>
         <label for='documento'>Documento: </label>
@@ -15,19 +15,8 @@
       </div>
       <div>
         <label for='endereco'>Endereço: </label>
-        <input id='endereco' [(ngModel)]="cliente.endereco" placeholder="endereco">
+        <input id='endereco' [(ngModel)]="cliente.endereco" placeholder="endereco" style="margin-left: 14px;">
       </div>
-      <button (click)="goBack()">go back</button>
-      <button (click)="save()">save</button>
+      <button (click)="goBack()">Voltar</button>
+      <button (click)="save()">Salvar</button>
     </div>
-<!-- 
-    <div *ngIf="hero">
-      <h2>{{hero.name | uppercase}} Details</h2>
-      <div><span>id: </span>{{hero.id}}</div>
-      <div>
-        <label for="hero-name">Hero name: </label>
-        <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
-      </div>
-      <button (click)="goBack()">go back</button>
-      <button (click)="save()">save</button>
-    </div> -->
