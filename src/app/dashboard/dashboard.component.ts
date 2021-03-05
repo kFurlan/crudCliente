@@ -17,6 +17,6 @@ export class DashboardComponent implements OnInit {
   }
 
   getClientes():void {
-    this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes.slice(1,5));
+    this.clienteService.getClientes().subscribe(clientes => this.clientes = clientes.slice(0,100));
   }
 }
